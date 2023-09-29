@@ -1,2 +1,1 @@
-# smth_for_school
-idk this is something for school ig
+# This is something I made for my school
