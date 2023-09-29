@@ -1,0 +1,5 @@
+23 of September, 2023: I started to make this web app because Emily asked me to make an app for the school's staff to communicate
+in cases of issues with technology in the school due to the fact that Michelle is usually getting the same message over and over
+from different teachers (according to Emily) so I started making this web app to create that and at this point, I only used
+javascript, node.js, and express.js. I started using static files and the such but still, it's still in the early development
+stage of the product so I don't know if I would be able the finish this quickly before the start of the day of forgiveness.
