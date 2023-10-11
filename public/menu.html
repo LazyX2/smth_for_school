@@ -12,13 +12,37 @@
         <button id="report" onclick="window.location = '/';">לדיווח על תקלה</button>
     </div>
     <div id="screen">
+        <form action="/remove" method="post">
+            <br>
+            <br>
 
+            <label for="loc">:כיתה</label>
+            <br>
+        
+            <select name="loc" id="loc" value="">
+                
+            </select>
+        
+            <br><br>
+        
+            <input type="submit" value=".מחק או מחקי תקלה זו">
+        </form>
     </div>
     <script type="text/javascript">
         const class_letter = [
             'ז', 'ח', 'ט', 'י', 'יא', 'יב'
         ];
+        const locSelector = document.getElementById('loc');
+        for (let a = 0; a < 6; a++) {
+            for (let b = 1; b <= 3; b++) {
+                const element = document.createElement('option');
+                element.setAttribute('value', "loc" + (a + 7) + "_" + b);
+                element.innerHTML = class_letter[a] + " " + b;
+                locSelector.appendChild(element);
+            }
+        }
         const screen = document.getElementById("screen");
+        let form;
         fetch('http://localhost:3000/reports')
             .then(response => {return response.json()})
             .then(data => {
@@ -28,6 +52,9 @@
                     class_name = class_letter[parseInt(class_name[0])-7] + " " + class_name[1];
                     screen.innerHTML += "<br><h3>" + " בכיתה " + class_name + "</h3>";
                     screen.innerHTML += "<h3>" + data[problem] + " יש בעיה מסוג " + "</h3><br>";
+                    form = document.createElement("form");
+                    form.setAttribute("action", "/remove");
+                    form.setAttribute("method", "post");
                 };
             })
             .catch(e => console.log(e));
